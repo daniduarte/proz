@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Project creator shell script
+#
+# By @daniduarte_cl
+
+# [TODO]
+# * Optimize entire code
+# * Auto-initialize a local git repository for the current project
+# * Auto-create the sourcer files with basic code lines, not empty
+# * Integrate the Compass vendor package
+# * Integrate the Boostrap vendor package
+
+
+dateCreate=$(date +%d/%m/%y)
+
+
+# Set name for the project
+#
+echo "Name for the new project (no commas):"
+read nameProject
+
+
+# Create the project folders
+#
+mkdir $nameProject
+mkdir $nameProject/assets $nameProject/assets/stylesheets $nameProject/assets/javascripts $nameProject/assets/images
+mkdir $nameProject/sources $nameProject/sources/assets $nameProject/sources/assets/stylesheets $nameProject/sources/assets/javascripts $nameProject/sources/views
+
+
+# [OPTMIZE] It most create a ready index.haml file with the basic code lines, not empty
+#
+touch $nameProject/sources/views/index.haml
+touch $nameProject/sources/assets/stylesheets/styles.sass
+touch $nameProject/sources/assets/javascripts/app.coffee
+
+
+# Create the blank readme file
+#
+echo "Project created on" $dateCreate > $nameProject/README.md
+
+
+# Message for the user
+#
+echo 'Done!' $nameProject "project has been created"
+
